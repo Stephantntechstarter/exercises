@@ -51,5 +51,5 @@ def main():
         if play_again != "ja":
             print("Danke fürs Spielen!")
 
-if _name_ == "_main_":
+if __name__ == "_main_":
     main()
