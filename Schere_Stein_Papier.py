@@ -50,6 +50,7 @@ def main():
         play_again = input("Möchtest du noch eine Runde spielen? (ja/nein):").lower()
         if play_again != "ja":
             print("Danke fürs Spielen!")
+            break
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     main()
