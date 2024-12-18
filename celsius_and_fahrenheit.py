@@ -4,7 +4,7 @@ def celsius_to_fahrenheit(c):
 def fahrenheit_to_celsius(f):
     return (f - 32) * 5/9
 
-choice = input("Möchtest du Celsius in Fahrenheit oder Fahrenheit in Celsius umrechnen? (Gib "Celsius" oder "Fahreinheit" ein):")
+choice = input("Möchtest du Celsius in Fahrenheit oder Fahrenheit in Celsius umrechnen? (Gib 'Celsius' oder 'Fahreinheit' ein):")
 
 if choice == "Celsius":
     celsius = float(input("Wie viel Grad Celsius möchtest du umrechnen?"))
