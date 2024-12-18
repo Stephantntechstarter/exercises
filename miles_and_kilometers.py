@@ -4,7 +4,7 @@ def miles_to_kilometers(miles):
 def kilometer_to_miles(kilometers):
     return kilometers * 0.621371
 
-choice = input("Möchtest du Meilen in Kilometer oder Kilometer in Meilen umrechnen? (schreibe "Meilen" oder "Kilometer"):")
+choice = input("Möchtest du Meilen in Kilometer oder Kilometer in Meilen umrechnen? (schreibe 'Meilen' oder 'Kilometer'):")
 
 if choice == "Meilen":
     miles = float(input("Wie viele Meilen möchtest du umrechnen?"))
