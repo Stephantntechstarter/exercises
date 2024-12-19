@@ -15,6 +15,10 @@ def berechne_differenz(ziel_datum=None):
         try:
             if ziel_datum is None:                                  # Wenn kein Datum übergeben wurde, wird der Benutzer nach einem Datum gefragt
                 datum_input = input("Gib ein Datum ein (TT.MM.JJJJ): ")
+                if not datum_input.strip():                         # Prüfung, ob der Benutzer nichts eingibt
+                    print("Das Datum darf nicht leer sein.")
+                    continue                                        # Fortfahren zur nächsten Iteration der Schleife, sodass der Benutzer erneut nach dem Datum gefragt wird
+
             else:
                 datum_input = ziel_datum
             tag, monat, jahr = map(int, datum_input.split("."))     # Splitten der Eingabe (TT.MM.JJJJ) in Tag, Monat, Jahr und Umwandlung in Integer
@@ -35,20 +39,21 @@ def zeit_in_zukunft():
     while True:                                                     # Endlos-Schleife, um den Benutzer so lange nach einer korrekten Eingabe zu fragen
         try:     
             zeit_input = input("Gib eine Zeitspanne ein (Minuten, Stunden, Tage): ")
+            if not zeit_input.strip()                               # Prüfung, ob die Eingabe leer oder nur aus Leerzeichen besteht
             zeit, einheit = zeit_input.split()
             zeit = int(zeit)
 
-            delta = {                                                # Definition des Zeitdeltas für Minuten, Stunden und Tage als datetime.timedelta-Objekte
+            delta = {                                               # Definition des Zeitdeltas für Minuten, Stunden und Tage als datetime.timedelta-Objekte
                 "minuten": datetime.timedelta(minutes=zeit),
                 "stunden": datetime.timedelta(hours=zeit),
                 "tage": datetime.timedelta(days=zeit)
             }
 
             einheit = einheit.lower()
-            if  einheit in delta:
+            if  einheit in delta:                                   # Wenn die Einheit gültig ist, wird das zukünftige Datum berechnet
                 zukunft = datetime.datetime.now() + delta[einheit]
                 print(f"In {zeit} {einheit} wird es {zukunft.strftime('%d.%m.%Y %H:%M:%S')}")
-                break
+                break                                               # Schleife verlassen, da die Eingabe korrekt war
             else:
                 print("Ungültige Zeiteinheit. Verwende 'Minuten', 'Stunden' oder 'Tage'.")
 
