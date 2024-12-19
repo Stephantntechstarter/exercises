@@ -15,7 +15,7 @@ def berechne_differenz(ziel_datum=None):
         try:
             if ziel_datum is None:                                                                          # Wenn kein Datum übergeben wurde, wird der Benutzer nach einem Datum gefragt
                 datum_input = input("Gib ein Datum ein (TT.MM.JJJJ): ").strip()
-                if not datum_input.strip():                                                                 # Prüfung, ob der Benutzer nichts eingibt
+                if not datum_input:                                                                         # Prüfung, ob der Benutzer nichts eingibt
                     print("Das Datum darf nicht leer sein.")
                     continue                                                                                # Fortfahren zur nächsten Iteration der Schleife, sodass der Benutzer erneut nach dem Datum gefragt wird
 
@@ -39,7 +39,7 @@ def zeit_in_zukunft():
     while True:                                                                                             # Endlos-Schleife, um den Benutzer so lange nach einer korrekten Eingabe zu fragen
         try:     
             zeit_input = input("Gib eine Zeitspanne ein (Minuten, Stunden, Tage): ").strip()
-            if not zeit_input.strip():                                                                      # Prüfung, ob die Eingabe leer oder nur aus Leerzeichen besteht
+            if not zeit_input:                                                                              # Prüfung, ob die Eingabe leer oder nur aus Leerzeichen besteht
                 print("Das Datum darf nicht leer sein.")
                 continue                                                                                    # Fortfahren zur nächsten Iteration der Schleife, sodass der Benutzer erneut nach dem Datum gefragt wird
 
@@ -47,6 +47,7 @@ def zeit_in_zukunft():
             zeit = int(zeit)                                                                                # Umwandeln der Zeit in eine Ganzzahl
 
                  delta = {                                                                                  # Definition des Zeitdeltas für Minuten, Stunden und Tage als datetime.timedelta-Objekte
+                "minuten": datetime.timedelta(minutes=zeit),
                 "stunden": datetime.timedelta(hours=zeit),                                                  # Definiert Zeitdeltas für die angegebenen Einheiten (Stunden und Tage) anhand der eingegebenen Zeit
                 "tage": datetime.timedelta(days=zeit)
             }
@@ -60,7 +61,7 @@ def zeit_in_zukunft():
                 print("Ungültige Zeiteinheit. Verwende 'Minuten', 'Stunden' oder 'Tage'.")
 
         except ValueError:
-            print("Ungültige Eingabe. Gib bitte eine gültige Zahl gefolgt von einer Zeiteinheit ein.")
+            print("Ungültige Eingabe. Gib bitte eine Zahl, gefolgt von einer gültigen Zeiteinheit (Minuten, Stunden, Tage) ein.")
 
 # Hauptfunktion, die alle anderen Funktionen aufruft.
 def main():
