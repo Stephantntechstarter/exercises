@@ -43,8 +43,8 @@ def zeit_in_zukunft():
                 print("Das Datum darf nicht leer sein.")
                 continue                                            # Fortfahren zur nächsten Iteration der Schleife, sodass der Benutzer erneut nach dem Datum gefragt wird
 
-                zeit, einheit = zeit_input.split()
-                zeit = int(zeit)
+            zeit, einheit = zeit_input.split()                      # Aufteilen der Eingabe in Zeit und Einheit
+            zeit = int(zeit)                                        # Umwandeln der Zeit in eine Ganzzahl
 
             delta = {                                               # Definition des Zeitdeltas für Minuten, Stunden und Tage als datetime.timedelta-Objekte
                 "minuten": datetime.timedelta(minutes=zeit),
