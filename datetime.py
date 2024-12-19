@@ -39,7 +39,7 @@ def zeit_in_zukunft():
                 "tage": datetime.timedelta(days=zeit)
             }
 
-                einheit = einheit.lower()
+            einheit = einheit.lower()
             if  einheit in delta:
                 zukunft = datetime.datetime.now() + delta[einheit]
                 print(f"In {zeit} {einheit} wird es {zukunft.strftime('%d.%m.%Y %H:%M:%S')}")
