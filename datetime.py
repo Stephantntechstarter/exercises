@@ -11,51 +11,51 @@ def tage_bis_jahresende():
 
 # Berechnet die Differenz zwischen dem heutigen Datum und einem benutzerdefinierten Datum.
 def berechne_differenz(ziel_datum=None):
-    while True:                                                                                     # Schleife, die solange fortgesetzt wird, bis der Benutzer ein gültiges Datum eingibt
+    while True:                                                                                             # Schleife, die solange fortgesetzt wird, bis der Benutzer ein gültiges Datum eingibt
         try:
-            if ziel_datum is None:                                                                  # Wenn kein Datum übergeben wurde, wird der Benutzer nach einem Datum gefragt
-                datum_input = input("Gib ein Datum ein (TT.MM.JJJJ): ")
-                if not datum_input.strip():                                                         # Prüfung, ob der Benutzer nichts eingibt
+            if ziel_datum is None:                                                                          # Wenn kein Datum übergeben wurde, wird der Benutzer nach einem Datum gefragt
+                datum_input = input("Gib ein Datum ein (TT.MM.JJJJ): ").strip()
+                if not datum_input.strip():                                                                 # Prüfung, ob der Benutzer nichts eingibt
                     print("Das Datum darf nicht leer sein.")
-                    continue                                                                        # Fortfahren zur nächsten Iteration der Schleife, sodass der Benutzer erneut nach dem Datum gefragt wird
+                    continue                                                                                # Fortfahren zur nächsten Iteration der Schleife, sodass der Benutzer erneut nach dem Datum gefragt wird
 
             else:
-                datum_input = ziel_datum                                                            # Wenn ein Ziel-Datum übergeben wurde, verwenden wir dieses
-            tag, monat, jahr = map(int, datum_input.split("."))                                     # Splitten der Eingabe (TT.MM.JJJJ) in Tag, Monat, Jahr und Umwandlung in Integer
-            benutzer_datum = datetime.date(jahr, monat, tag)                                        # Erstellen eines Datumsobjekts mit den eingegebenen Werten
-            differenz = benutzer_datum - datetime.date.today()                                      # Berechnung der Differenz zwischen dem Ziel-Datum und dem heutigen Datum
+                datum_input = ziel_datum                                                                    # Wenn ein Ziel-Datum übergeben wurde, verwenden wir dieses
+            tag, monat, jahr = map(int, datum_input.split("."))                                             # Splitten der Eingabe (TT.MM.JJJJ) in Tag, Monat, Jahr und Umwandlung in Integer
+            benutzer_datum = datetime.date(jahr, monat, tag)                                                # Erstellen eines Datumsobjekts mit den eingegebenen Werten
+            differenz = benutzer_datum - datetime.date.today()                                              # Berechnung der Differenz zwischen dem Ziel-Datum und dem heutigen Datum
             print(f"Tage bis zum angegebenen Datum: {differenz.days}")                              
-            return benutzer_datum                                                                   # Rückgabe des benutzerdefinierten Datums, falls es später benötigt wird
-        except ValueError:                                                                          # Wenn die Eingabe ungültig ist (z.B. falsches Format), wird dies abgefangen
+            return benutzer_datum                                                                           # Rückgabe des benutzerdefinierten Datums, falls es später benötigt wird
+        except ValueError:                                                                                  # Wenn die Eingabe ungültig ist (z.B. falsches Format), wird dies abgefangen
             print("Ungültiges Datum. Bitte im Format TT.MM.JJJJ eingeben.")
 
 # Berechnet den Wochentag für das eingegebene Datum.
 def wochentag_berechnen():
-    datum = berechne_differenz()                                                                    # Berechnet das benutzerdefinierte Datum und gibt es zurück
+    datum = berechne_differenz()                                                                            # Berechnet das benutzerdefinierte Datum und gibt es zurück
     print(f"Der eingegebene Wochentag ist {datum.strftime('%A')}")
 
 # Berechnet das zukünftige Datum basierend auf der angegebenen Zeitspanne.
 def zeit_in_zukunft():
-    while True:                                                                                     # Endlos-Schleife, um den Benutzer so lange nach einer korrekten Eingabe zu fragen
+    while True:                                                                                             # Endlos-Schleife, um den Benutzer so lange nach einer korrekten Eingabe zu fragen
         try:     
-            zeit_input = input("Gib eine Zeitspanne ein (Minuten, Stunden, Tage): ")
-            if not zeit_input.strip():                                                              # Prüfung, ob die Eingabe leer oder nur aus Leerzeichen besteht
+            zeit_input = input("Gib eine Zeitspanne ein (Minuten, Stunden, Tage): ").strip()
+            if not zeit_input.strip():                                                                      # Prüfung, ob die Eingabe leer oder nur aus Leerzeichen besteht
                 print("Das Datum darf nicht leer sein.")
-                continue                                                                            # Fortfahren zur nächsten Iteration der Schleife, sodass der Benutzer erneut nach dem Datum gefragt wird
+                continue                                                                                    # Fortfahren zur nächsten Iteration der Schleife, sodass der Benutzer erneut nach dem Datum gefragt wird
 
-            zeit, einheit = zeit_input.split()                                                      # Aufteilen der Eingabe in Zeit und Einheit
-            zeit = int(zeit)                                                                        # Umwandeln der Zeit in eine Ganzzahl
+            zeit, einheit = zeit_input.split()                                                              # Aufteilen der Eingabe in Zeit und Einheit
+            zeit = int(zeit)                                                                                # Umwandeln der Zeit in eine Ganzzahl
 
-                 delta = {                                                                          # Definition des Zeitdeltas für Minuten, Stunden und Tage als datetime.timedelta-Objekte
-                "stunden": datetime.timedelta(hours=zeit),                                          # Definiert Zeitdeltas für die angegebenen Einheiten (Stunden und Tage) anhand der eingegebenen Zeit
+                 delta = {                                                                                  # Definition des Zeitdeltas für Minuten, Stunden und Tage als datetime.timedelta-Objekte
+                "stunden": datetime.timedelta(hours=zeit),                                                  # Definiert Zeitdeltas für die angegebenen Einheiten (Stunden und Tage) anhand der eingegebenen Zeit
                 "tage": datetime.timedelta(days=zeit)
             }
 
-            einheit = einheit.lower()                                                               # Umwandeln der Einheit in Kleinbuchstaben
-            if  einheit in delta:                                                                   # Wenn die Einheit gültig ist, wird das zukünftige Datum berechnet
+            einheit = einheit.lower()                                                                       # Umwandeln der Einheit in Kleinbuchstaben
+            if  einheit in delta:                                                                           # Wenn die Einheit gültig ist, wird das zukünftige Datum berechnet
                 zukunft = datetime.datetime.now() + delta[einheit]
                 print(f"In {zeit} {einheit} wird es {zukunft.strftime('%d.%m.%Y %H:%M:%S')}")       
-                break                                                                               # Schleife verlassen, da die Eingabe korrekt war
+                break                                                                                       # Schleife verlassen, da die Eingabe korrekt war
             else:
                 print("Ungültige Zeiteinheit. Verwende 'Minuten', 'Stunden' oder 'Tage'.")
 
@@ -64,7 +64,7 @@ def zeit_in_zukunft():
 
 # Hauptfunktion, die alle anderen Funktionen aufruft.
 def main():
-    while True:                                                                                     # Endlos-Schleife für die Wiederholung der Berechnungen
+    while True:                                                                                             # Endlos-Schleife für die Wiederholung der Berechnungen
 
 # Gibt das aktuelle Datum und die Uhrzeit aus
         aktuelles_datum_und_Uhrzeit()
@@ -82,10 +82,10 @@ def main():
         zeit_in_zukunft()
 
 # Frage, ob der Benutzer fortfahren möchte
-        fortfahren = input("Möchtest du erneut eine Berechnung durchführen? (j/n): ")
+        fortfahren = input("Möchtest du erneut eine Berechnung durchführen? (j/n): ").strip()
         if fortfahren.lower() != 'j':
             print("Programm wird beendet.")
-            break                                                                                   # Verlasse die Schleife, wenn der Benutzer nicht fortfahren möchte 
+            break                                                                                           # Verlasse die Schleife, wenn der Benutzer nicht fortfahren möchte 
 
 if __name__ == "__main__":
     main()
