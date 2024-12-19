@@ -22,7 +22,7 @@ def berechne_differenz(ziel_datum=None):
             else:
                 datum_input = ziel_datum
             tag, monat, jahr = map(int, datum_input.split("."))     # Splitten der Eingabe (TT.MM.JJJJ) in Tag, Monat, Jahr und Umwandlung in Integer
-            benutzer_datum = datetime.date(jahr, monat, tag)
+            benutzer_datum = datetime.date(jahr, monat, tag)        # Erstellen eines Datumsobjekts mit den eingegebenen Werten
             differenz = benutzer_datum - datetime.date.today()
             print(f"Tage bis zum angegebenen Datum: {differenz.days}")
             return benutzer_datum
@@ -80,6 +80,11 @@ def main():
 
 # Berechnet das zukünftige Datum basierend auf der angegebenen Zeitspanne und gibt es aus    
     zeit_in_zukunft()
+
+# Frage, ob der Benutzer fortfahren möchte
+   fortfahren = input("Möchtest du erneut eine Berechnung durchführen? (j/n): ")
+        if fortfahren.lower() != 'j':
+            break  
 
 if __name__ == "__main__":
     main()
