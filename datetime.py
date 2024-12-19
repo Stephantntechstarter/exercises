@@ -4,7 +4,7 @@ def aktuelles_datum_und_Uhrzeit():
     print("Aktuelles Datum und Uhrzeit:",datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S"))
 
 def tage_bis_jahresende():
-    differenz = datetime.date(datetime.date.today().year, 12, 31) - datetime.datetime.now()
+    differenz = datetime.date(datetime.date.today().year, 12, 31) - datetime.date.today()
     print("Tage bis zum Jahresende:", differenz.days)
 
 def berechne_differenz(ziel_datum=None):
@@ -34,7 +34,7 @@ def zeit_in_zukunft():
             zeit = int(zeit)
             delta = {"minuten": datetime.timedelta(minutes=zeit), "stunden": datetime.timedelta(hours=zeit), "tage": datetime.timedelta(days=zeit)}
             if einheit.lower() in delta:
-                zukunft = datetime.date.today() + delta[einheit.lower()]
+                zukunft = datetime.datetime.now() + delta[einheit.lower()]
                 print(f"In {zeit} {einheit} wird der {zukunft.strftime('%d.%m.%Y %H:%M:%S')}")
                 break
             else:
