@@ -23,7 +23,7 @@ def berechne_differenz(ziel_datum=None):
             print(f"Tage bis zum angegebenen Datum: {differenz.days}")
             return benutzer_datum
         except ValueError:                                          # Wenn die Eingabe ungültig ist (z.B. falsches Format), wird dies abgefangen
-            print("Ungültiges Datum (TT.MM.JJJJ bitte)")
+            print("Ungültiges Datum. Bitte im Format TT.MM.JJJJ eingeben.")
 
 # Berechnet den Wochentag für das eingegebene Datum.
 def wochentag_berechnen():
@@ -32,8 +32,8 @@ def wochentag_berechnen():
 
 # Berechnet das zukünftige Datum basierend auf der angegebenen Zeitspanne.
 def zeit_in_zukunft():
-    while True:     
-        try:
+    while True:                                                     # Endlos-Schleife, um den Benutzer so lange nach einer korrekten Eingabe zu fragen
+        try:     
             zeit_input = input("Gib eine Zeitspanne ein (Minuten, Stunden, Tage): ")
             zeit, einheit = zeit_input.split()
             zeit = int(zeit)
