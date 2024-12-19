@@ -39,7 +39,7 @@ def zeit_in_zukunft():
     while True:                                                     # Endlos-Schleife, um den Benutzer so lange nach einer korrekten Eingabe zu fragen
         try:     
             zeit_input = input("Gib eine Zeitspanne ein (Minuten, Stunden, Tage): ")
-            if not zeit_input.strip()                               # Prüfung, ob die Eingabe leer oder nur aus Leerzeichen besteht
+            if not zeit_input.strip():                              # Prüfung, ob die Eingabe leer oder nur aus Leerzeichen besteht
             zeit, einheit = zeit_input.split()
             zeit = int(zeit)
 
