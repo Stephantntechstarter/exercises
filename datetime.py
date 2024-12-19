@@ -1,12 +1,15 @@
 import datetime
 
+# Gibt das aktuelle Datum und die Uhrzeit aus.
 def aktuelles_datum_und_Uhrzeit():
     print("Aktuelles Datum und Uhrzeit:",datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S"))
 
+# Berechnet die verbleibenden Tage bis zum Jahresende und gibt diese aus.
 def tage_bis_jahresende():
     differenz = datetime.date(datetime.date.today().year, 12, 31) - datetime.date.today()
     print("Tage bis zum Jahresende:", differenz.days)
 
+# Berechnet die Differenz zwischen dem heutigen Datum und einem benutzerdefinierten Datum.
 def berechne_differenz(ziel_datum=None):
     while True:
         try:
@@ -22,10 +25,12 @@ def berechne_differenz(ziel_datum=None):
         except ValueError:
             print("Ungültiges Datum (TT.MM.JJJJ bitte)")
 
+# Berechnet den Wochentag für das eingegebene Datum.
 def wochentag_berechnen():
     datum = berechne_differenz()
     print(f"Der eingegebene Wochentag ist {datum.strftime('%A')}")
 
+# Berechnet das zukünftige Datum basierend auf der angegebenen Zeitspanne.
 def zeit_in_zukunft():
     while True:
         try:
@@ -50,6 +55,7 @@ def zeit_in_zukunft():
         except ValueError:
             print("Ungültige Eingabe. Gib bitte eine gültige Zahl gefolgt von einer Zeiteinheit ein.")
 
+# Hauptfunktion, die alle anderen Funktionen aufruft.
 def main():
 
     aktuelles_datum_und_Uhrzeit()
