@@ -2,7 +2,7 @@ import datetime
 
 def aktuelles_datum_und_Uhrzeit():
     jetzt = datetime.datetime.now()
-    print("Aktuelles Datum und Uhrzeit:", jetzt.strftime("%d.%m.%Y:%S"))
+    print("Aktuelles Datum und Uhrzeit:", jetzt.strftime("%d.%m.%Y %H:%M:%S"))
 
 def tage_bis_jahresende():
     heute = datetime.date.today()
@@ -38,7 +38,7 @@ def zeit_in_zukunft():
     while True:
         try:
             zeit_input = input("Gib eine Zeitspanne ein (Minuten, Stunden, Tage): ")
-            zeit, einheit = zeit_inpu.split()
+            zeit, einheit = zeit_input.split()
             zeit = int(zeit)
             if einheit.lower() == "minuten":
                 zukunft = datetime.datetime.now() + datetime.timedelta(minutes=zeit)
