@@ -24,7 +24,7 @@ def berechne_differenz(ziel_datum=None):
 
 def wochentag_berechnen():
     datum = berechne_differenz()
-            print(f"Der eingegebene Wochentag ist {datum.strftime('%A')}")
+    print(f"Der eingegebene Wochentag ist {datum.strftime('%A')}")
 
 def zeit_in_zukunft():
     while True:
@@ -34,7 +34,7 @@ def zeit_in_zukunft():
             zeit = int(zeit)
             delta = {"minuten": datetime.timedelta(minutes=zeit), "stunden": datetime.timedelta(hours=zeit), "tage": datetime.timedelta(days=zeit)}
             if einheit.lower() in delta:
-                zukunft = datetime.datetime.now() + delta[einheit.lower()]
+                zukunft = datetime.date.today() + delta[einheit.lower()]
                 print(f"In {zeit} {einheit} wird der {zukunft.strftime('%d.%m.%Y %H:%M:%S')}")
                 break
             else:
