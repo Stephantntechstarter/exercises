@@ -31,7 +31,7 @@ def berechne_differenz(ziel_datum=None):
 
 # Berechnet den Wochentag für das eingegebene Datum.
 def wochentag_berechnen():
-    datum = berechne_differenz()
+    datum = berechne_differenz()                                    # Berechnet das benutzerdefinierte Datum und gibt es zurück
     print(f"Der eingegebene Wochentag ist {datum.strftime('%A')}")
 
 # Berechnet das zukünftige Datum basierend auf der angegebenen Zeitspanne.
@@ -40,8 +40,11 @@ def zeit_in_zukunft():
         try:     
             zeit_input = input("Gib eine Zeitspanne ein (Minuten, Stunden, Tage): ")
             if not zeit_input.strip():                              # Prüfung, ob die Eingabe leer oder nur aus Leerzeichen besteht
-            zeit, einheit = zeit_input.split()
-            zeit = int(zeit)
+                print("Das Datum darf nicht leer sein.")
+                continue                                            # Fortfahren zur nächsten Iteration der Schleife, sodass der Benutzer erneut nach dem Datum gefragt wird
+
+                zeit, einheit = zeit_input.split()
+                zeit = int(zeit)
 
             delta = {                                               # Definition des Zeitdeltas für Minuten, Stunden und Tage als datetime.timedelta-Objekte
                 "minuten": datetime.timedelta(minutes=zeit),
@@ -49,7 +52,7 @@ def zeit_in_zukunft():
                 "tage": datetime.timedelta(days=zeit)
             }
 
-            einheit = einheit.lower()
+            einheit = einheit.lower()                               # Umwandeln der Einheit in Kleinbuchstaben
             if  einheit in delta:                                   # Wenn die Einheit gültig ist, wird das zukünftige Datum berechnet
                 zukunft = datetime.datetime.now() + delta[einheit]
                 print(f"In {zeit} {einheit} wird es {zukunft.strftime('%d.%m.%Y %H:%M:%S')}")
@@ -63,10 +66,19 @@ def zeit_in_zukunft():
 # Hauptfunktion, die alle anderen Funktionen aufruft.
 def main():
 
+# Gibt das aktuelle Datum und die Uhrzeit aus
     aktuelles_datum_und_Uhrzeit()
+
+# Berechnet und gibt die verbleibenden Tage bis zum Jahresende aus   
     tage_bis_jahresende()
+
+# Berechnet die Differenz zwischen dem aktuellen Datum und einem benutzerdefinierten Datum  
     berechne_differenz ()
+
+# Berechnet und gibt den Wochentag für das benutzerdefinierte Datum aus 
     wochentag_berechnen()
+
+# Berechnet das zukünftige Datum basierend auf der angegebenen Zeitspanne und gibt es aus    
     zeit_in_zukunft()
 
 if __name__ == "__main__":
