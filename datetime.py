@@ -47,7 +47,7 @@ def main():
 
     aktuelles_datum_und_Uhrzeit()
     tage_bis_jahresende()
-    berechne_differenz
+    berechne_differenz ()
     wochentag_berechnen()
     zeit_in_zukunft()
 
