@@ -18,7 +18,7 @@ else:
 
     - Variable zahl definieren
     - Eingabe durch input() erfassen
-    - mit int() in eine Ganzzahl umgewandeln
+    - mit int() in eine Ganzzahl umwandeln
     - Bedingung prüfen:
         - Ja: Die Zahl ist größer als 10. wird ausgegeben
         - Nein: Die Zahl ist 10 oder kleiner. wird ausgegeben
@@ -82,7 +82,7 @@ else:
 
     - Variable zahl definieren
     - Eingabe durch input() erfassen
-    - mit int() in eine Ganzzahl umgewandeln
+    - mit int() in eine Ganzzahl umwandeln
     - Bedingung prüfen:
         - True: Die Zahl ist positiv. wird ausgegeben
         - False: Die Zahl ist negativ. wird ausgegeben
@@ -116,7 +116,7 @@ else:
         - Bedingung prüfen:
             - zahl % 2 == 0
     - Eingabe durch input() erfassen
-    - mit int() in eine Ganzzahl umgewandeln
+    - mit int() in eine Ganzzahl umwandeln
     - Bedingung prüfen:
         - True: Die Zahl ist gerade. wird ausgegeben
         - False: Die Zahl ist ungerade. wird ausgegeben
@@ -138,7 +138,7 @@ print(f"Hallo {name}, in 10 Jahren wirst du {alter + 10} Jahre alt sein!")
 - Schreibe die Arbeitsschritte auf.
 
     - Eingabe durch input() erfassen
-    - mit int() in eine Ganzzahl umgewandeln
+    - mit int() in eine Ganzzahl umwandeln
     - Alter in 10 Jahren berechen:
         - alter + 10
     - mit f-String formatierte Nachricht ausgeben
